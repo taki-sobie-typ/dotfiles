@@ -1,0 +1,28 @@
+# kube.zsh-theme
+
+COLOR_WHITE="%{$fg[white]%}"
+COLOR_YELLOW="%{$fg[yellow]%}"
+COLOR_CYAN="%{$fg[cyan]%}"
+COLOR_BLUE="%{$fg[blue]%}"
+COLOR_MAGENTA="%{$fg[magenta]%}"
+COLOR_GREEN="%{$fg[green]%}"
+COLOR_RED="%{$fg[red]%}"
+
+ZSH_THEME_GIT_PROMPT_PREFIX="$COLOR_WHITE{$COLOR_BLUE"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$COLOR_WHITE}"
+ZSH_THEME_GIT_PROMPT_CLEAN="$COLOR_GREEN🍏"
+ZSH_THEME_GIT_PROMPT_DIRTY="$COLOR_RED🍎"
+
+TIME="$COLOR_WHITE"["$COLOR_YELLOW%T$COLOR_WHITE"]"%{$reset_color%}"
+KUBE="$COLOR_WHITE"["$COLOR_MAGENTA$(whoami)$COLOR_WHITE"]
+DIR="[$COLOR_CYAN%~$COLOR_WHITE]\$(git_prompt_info) "
+PROMPT="$COLOR_YELLOW» $COLOR_WHITE"
+
+PROMPT="$KUBE$DIR$PROMPT%{$reset_color%}" 
+
+#TMOUT=1
+ZLE_RPROMPT_INDENT=0
+
+#TRAPALRM() {
+#    zle reset-prompt
+#}
