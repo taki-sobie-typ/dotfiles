@@ -1,4 +1,27 @@
 " .Vimrc file 
+" KOK vim kok keybindings and fixes
+set updatetime=300
+set signcolumn=yes
+
+
+"suggest.noselect: true
+" COC tab S-tab compleation
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+
+ 
 let g:jedi#show_call_signatures = 2
 set clipboard=unnamedplus
 
@@ -9,7 +32,7 @@ set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-set expandtab
+"set expandtab
 
 " Basics Config
 syntax on
@@ -27,28 +50,15 @@ set hidden
 " Key mapping
 map <C-o> :setlocal spell! spelllang=pl_pl<CR>
 map <C-n> :NERDTreeToggle<CR>
-"let g:user_emmet_mode='n'	"only enable emmet in normal mode
-"let g:user_emmet_leader_key=','
 " REMAPS
 inoremap jj <Esc>
-" For local replace
-"nnoremap gr :s/<C-R>///gc<left><left><left>
-
-" " For global replace
-"nnoremap gR :%s/<C-R>///gc<left><left><left>
 
 " Plugins/Extensions
 call plug#begin('~/.vim/plugged')
-Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
-"Plug 'ycm-core/YouCompleteMe'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'vim-utils/vim-man'
 "Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
-"Plug 'dracula/vim'
 "Plug 'mattn/emmet-vim'
-"Plug 'dylanaraps/fff.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'shinchu/lightline-gruvbox.vim'
@@ -57,6 +67,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ap/vim-buftabline'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'NLKNguyen/papercolor-theme'
+"Plug 'mkitt/tabline.vim'
 call plug#end()
 
 " Python
@@ -65,6 +77,7 @@ let g:python_highlight_all = 1
 
 " Vim-Airline
 "set showtabline=2
+set noshowmode
 " Nerd Tree
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -84,10 +97,6 @@ let g:lightline.colorscheme = 'gruvbox'
 
 
 
-"Python YCM issue
-let g:jedi#completions_enabled = 0
-set completeopt-=preview
-hi YCMInverse term=italic cterm=italic gui=italic
 " Disable signature help
  let g:ycm_disable_signature_help = 1
 "Transparency
