@@ -1,0 +1,6 @@
+" Basics Config
+set number relativenumber
+
+" REMAPS
+inoremap jj <Esc>
+
