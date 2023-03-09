@@ -1,6 +1,0 @@
-#!/bin/bash
-
-TEMP=$(sensors | awk '/^Tdie:/ {printf $2}' | tr -d \+)
-TEMPE=$(sensors | awk '/^edge:/ {printf $2}' | tr -d \+)
-echo "${TEMP} ${TEMPE} "
-
