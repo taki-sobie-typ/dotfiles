@@ -7,6 +7,10 @@
   - rofi
   - dunst
 * ~~spectrwm~~
+* AwesomeWM
+  - picom
+  - rofi
+  - widgets
 * reszta
   - zshrc
   - zshtheme
